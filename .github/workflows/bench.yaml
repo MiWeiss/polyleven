@@ -1,0 +1,17 @@
+on: push
+name: Run benchmark
+jobs:
+  benchmark:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Benchmark
+        run: |
+          sudo apt install -y python3-dev
+          pip install --user edlib Distance jellyfish editdistance python-Levenshtein
+          pip install --user .
+          ( pip list; make bench; ) | tee benchmark.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          name: benchmark
+          path: benchmark.txt
