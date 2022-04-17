@@ -10,7 +10,7 @@ jobs:
           sudo apt install -y python3-dev
           pip install --user edlib Distance jellyfish editdistance python-Levenshtein
           pip install --user .
-          ( pip list; make bench; ) | tee benchmark.txt
+          ( pip list; make bench; make bench-long; ) | tee benchmark.txt
       - uses: actions/upload-artifact@v2
         with:
           name: benchmark
