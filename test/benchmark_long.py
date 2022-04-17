@@ -51,7 +51,7 @@ def gen_inputs(total, sizes):
 
 def benchmark():
     total = 5000
-    sizes = (16, 32, 64, 128, 256, 512, 1024)
+    sizes = (16, 32, 64, 128, 256)
 
     data = gen_inputs(total, sizes)
 
