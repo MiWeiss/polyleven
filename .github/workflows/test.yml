@@ -4,10 +4,15 @@ on: [push, pull_request]
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, osx-latest, windows-latest]
         #  No support for 3.10 yet
         python-version: [3.6, 3.7, 3.8, 3.9, "3.10"]
+        exclude:
+          # "Version 3.6 with arch x64 not found"
+          - os: windows-latest
+            python-version: 3.6
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
