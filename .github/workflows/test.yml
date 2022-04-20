@@ -18,5 +18,4 @@ jobs:
       - name: Install polyleven
         run: python setup.py install
       - name: Run unit tests
-        run: python -m unittest test/regression
-
+        run: python -m unittest test/regression.py
