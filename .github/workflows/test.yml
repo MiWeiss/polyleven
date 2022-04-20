@@ -13,6 +13,9 @@ jobs:
           # "Version 3.6 with arch x64 not found"
           - os: windows-latest
             python-version: 3.6
+          # "Version 3.6 with arch x64 not found"
+          - os: macos-latest
+            python-version: 3.6
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
