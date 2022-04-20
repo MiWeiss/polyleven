@@ -15,5 +15,7 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Install polyleven
+        run: python setup.py install
       - name: Run unit tests
-        run: run python -m unittest test/regression.py
+        run: python -m unittest test/regression.py
